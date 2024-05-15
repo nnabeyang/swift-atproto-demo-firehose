@@ -1,5 +1,5 @@
 {
-  "originHash" : "5d6b0025a2ec194d935ea6e57ca3adc7c0556c0b672ef42439e5bb57ce2edfc8",
+  "originHash" : "bcf4b8598587216bc33d36e5c1d9f123b7373b96ad6cac14f37aa026954ff21a",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nnabeyang/swift-atproto",
       "state" : {
-        "revision" : "40f90dcd16452fd5b8b58ff7ed0f953c45569030",
-        "version" : "0.7.0"
+        "revision" : "d4b1c5f27d23031244f41cbca1228daba625a329",
+        "version" : "0.8.0"
       }
     },
     {
