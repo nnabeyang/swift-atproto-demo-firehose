@@ -26,21 +26,45 @@ public enum Firehose {
                     if message.header.op != 1 {
                         continue
                     }
-                    let commit = message.commit
-                    let stream = InputStream(data: commit.blocks)
-                    stream.open()
-                    let reader = try CarReader(stream: stream)
-                    let blocks = try reader.readAll()
-                    for op in commit.ops {
-                        guard let cid = op.cid,
-                              let block = blocks.first(where: { block in
-                                  block.cid == cid
-                              })
-                        else {
-                            continue
+                    switch message.value {
+                    case let .commit(commit):
+                        let stream = InputStream(data: commit.blocks)
+                        stream.open()
+                        let reader = try CarReader(stream: stream)
+                        let blocks = try reader.readAll()
+                        for op in commit.ops {
+                            guard let cid = op.cid,
+                                  let block = blocks.first(where: { block in
+                                      block.cid == cid
+                                  })
+                            else {
+                                continue
+                            }
+
+                            let record = try decoder.decode(LexiconTypeDecoder.self, from: block.data)
+                            let json = try String(decoding: jsonEncoder.encode(record), as: UTF8.self)
+                            print(json)
                         }
-                        let record = try decoder.decode(LexiconTypeDecoder.self, from: block.data)
-                        let json = try String(decoding: jsonEncoder.encode(record), as: UTF8.self)
+                    case let .identity(value):
+                        let json = try String(decoding: jsonEncoder.encode(value), as: UTF8.self)
+                        print(json)
+                    case let .account(value):
+                        let json = try String(decoding: jsonEncoder.encode(value), as: UTF8.self)
+                        print(json)
+                    case let .handle(value):
+                        let json = try String(decoding: jsonEncoder.encode(value), as: UTF8.self)
+                        print(json)
+                    case let .info(value):
+                        let json = try String(decoding: jsonEncoder.encode(value), as: UTF8.self)
+                        print(json)
+                    case let .migrate(value):
+                        let json = try String(decoding: jsonEncoder.encode(value), as: UTF8.self)
+                        print(json)
+                    case let .tombstone(value):
+                        let json = try String(decoding: jsonEncoder.encode(value), as: UTF8.self)
+                        print(json)
+                    case let .labels(value):
+                        let json = try String(decoding: jsonEncoder.encode(value), as: UTF8.self)
                         print(json)
                     }
                 }

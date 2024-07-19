@@ -9,20 +9,67 @@ public struct MessageHeader: Codable, Equatable {
     public let t: String
 }
 
+public enum RepoValue: Codable {
+    case commit(comatprototypes.SyncSubscribeRepos_Commit)
+    case handle(comatprototypes.SyncSubscribeRepos_Handle)
+    case identity(comatprototypes.SyncSubscribeRepos_Identity)
+    case account(comatprototypes.SyncSubscribeRepos_Account)
+    case info(comatprototypes.SyncSubscribeRepos_Info)
+    case migrate(comatprototypes.SyncSubscribeRepos_Migrate)
+    case tombstone(comatprototypes.SyncSubscribeRepos_Tombstone)
+    case labels(comatprototypes.LabelSubscribeLabels_Labels)
+}
+
 public struct RepoMessage: Codable {
     public let header: MessageHeader
-    public let commit: comatprototypes.SyncSubscribeRepos_Commit
+    public let value: RepoValue
 
     public init(from decoder: any Decoder) throws {
         var container = try decoder.unkeyedContainer()
         header = try container.decode(MessageHeader.self)
-        commit = try container.decode(comatprototypes.SyncSubscribeRepos_Commit.self)
+        switch header.t {
+        case "#commit":
+            value = try .commit(container.decode(comatprototypes.SyncSubscribeRepos_Commit.self))
+        case "#handle":
+            value = try .handle(container.decode(comatprototypes.SyncSubscribeRepos_Handle.self))
+        case "#identity":
+            value = try .identity(container.decode(comatprototypes.SyncSubscribeRepos_Identity.self))
+        case "#account":
+            value = try .account(container.decode(comatprototypes.SyncSubscribeRepos_Account.self))
+        case "#info":
+            value = try .info(container.decode(comatprototypes.SyncSubscribeRepos_Info.self))
+        case "#migrate":
+            value = try .migrate(container.decode(comatprototypes.SyncSubscribeRepos_Migrate.self))
+        case "#tombstone":
+            value = try .tombstone(container.decode(comatprototypes.SyncSubscribeRepos_Tombstone.self))
+        case "#labels":
+            value = try .labels(container.decode(comatprototypes.LabelSubscribeLabels_Labels.self))
+        default:
+            fatalError("t: \(header.t)")
+        }
     }
 
     public func encode(to encoder: any Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encode(header)
-        try container.encode(commit)
+        switch value {
+        case let .commit(value):
+            try container.encode(value)
+        case let .identity(value):
+            try container.encode(value)
+        case let .account(value):
+            try container.encode(value)
+        case let .handle(value):
+            try container.encode(value)
+        case let .info(value):
+            try container.encode(value)
+        case let .migrate(value):
+            try container.encode(value)
+        case let .tombstone(value):
+            try container.encode(value)
+        case let .labels(value):
+            try container.encode(value)
+        }
     }
 }
 
