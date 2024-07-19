@@ -6,9 +6,7 @@ swift-atproto-demo-firehose is a demo application of [Firehose](https://docs.bsk
 
 XRPC API Code generation is done as follows:
 ```bash
-swift package plugin --allow-writing-to-package-directory swift-atproto \
-  --outdir ./Sources/API \
-  /path/to/bluesky-social/atproto/lexicons
+./generate.sh
 ```
 Run code as follows:
 ```bash
