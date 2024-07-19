@@ -1,0 +1,5 @@
+# file options
+
+--exclude Sources/API/comatproto
+--exclude Sources/API/appbsky
+--exclude Sources/API/comwhtwnd
