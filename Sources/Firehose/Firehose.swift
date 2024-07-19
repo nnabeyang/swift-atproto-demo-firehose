@@ -6,8 +6,8 @@ import SwiftCbor
 
 public enum Firehose {
     public static func main(url: String) async throws {
+        _ = XRPCClient.shared
         let decoder = CborDecoder()
-        appbskytypes.registerLexiconTypes()
         let jsonEncoder = JSONEncoder()
         jsonEncoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
         try await WebSocketClient.connect(url: .init(url),
