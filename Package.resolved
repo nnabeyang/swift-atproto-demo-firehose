@@ -1,5 +1,5 @@
 {
-  "originHash" : "bcf4b8598587216bc33d36e5c1d9f123b7373b96ad6cac14f37aa026954ff21a",
+  "originHash" : "8d9737c7d9febb897b5b86c58cec09c84ae213d3e25b35a6e65bbd85a815ddee",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hummingbird-project/hummingbird.git",
       "state" : {
-        "revision" : "23bedac5340dc34f32e6e327556df1d11bc94be1",
-        "version" : "2.0.0-beta.4"
+        "revision" : "50f887ff416593b468cf238b9536f671786a1507",
+        "version" : "2.0.0-rc.2"
       }
     },
     {
@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nnabeyang/swift-atproto",
       "state" : {
-        "revision" : "d4b1c5f27d23031244f41cbca1228daba625a329",
-        "version" : "0.8.0"
+        "revision" : "b80533d4b817ffdc36dee2936015cfe2ae711464",
+        "version" : "0.13.1"
       }
     },
     {
@@ -264,10 +264,10 @@
     {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-syntax.git",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
       "state" : {
-        "revision" : "fa8f95c2d536d6620cc2f504ebe8a6167c9fc2dd",
-        "version" : "510.0.1"
+        "revision" : "303e5c5c36d6a558407d364878df131c3546fad8",
+        "version" : "510.0.2"
       }
     },
     {
