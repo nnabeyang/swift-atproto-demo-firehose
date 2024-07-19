@@ -9,7 +9,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/nnabeyang/swift-atproto", exact: "0.13.1"),
         .package(url: "https://github.com/hummingbird-project/hummingbird-websocket", revision: "6cd9c6b795fe1e357bf851b3b9c8e3e8e4c1c691"),
-        .package(url: "https://github.com/nnabeyang/swift-cbor", exact: "0.0.2"),
+        .package(url: "https://github.com/nnabeyang/swift-cbor", exact: "0.0.4"),
         .package(url: "https://github.com/nicklockwood/SwiftFormat", exact: "0.53.8")
     ],
     targets: [
