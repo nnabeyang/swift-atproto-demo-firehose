@@ -1,0 +1,36 @@
+{
+  "dependencies" : [
+    {
+      "lexicons" : [
+        {
+          "path" : "lexicons/app/bsky",
+          "prefix" : "app.bsky"
+        },
+        {
+          "path" : "lexicons/com/atproto",
+          "prefix" : "com.atproto"
+        }
+      ],
+      "location" : "https://github.com/bluesky-social/atproto.git",
+      "state" : {
+        "revison" : "b899505293a6d158201ff0eac4a4e11daadee2e8",
+        "tag" : "@atproto/api@0.12.24"
+      }
+    },
+    {
+      "lexicons" : [
+        {
+          "path" : "lexicons/com/whtwnd",
+          "prefix" : "com.whtwnd"
+        }
+      ],
+      "location" : "https://github.com/whtwnd/whitewind-blog.git",
+      "state" : {
+        "revison" : "2bbde5c2f20d7ecd09946de20907740cea8c4397",
+        "tag" : "v1.0.1"
+      }
+    }
+  ],
+  "generator" : "0.13.1",
+  "module" : "Sources/API"
+}
