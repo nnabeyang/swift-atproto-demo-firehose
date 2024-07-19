@@ -1,0 +1,22 @@
+{
+  "dependencies": [
+    {
+      "location": "https://github.com/bluesky-social/atproto.git",
+      "lexicons": [
+        { "prefix": "app.bsky", "path": "lexicons/app/bsky" },
+        { "prefix": "com.atproto", "path": "lexicons/com/atproto" }
+      ],
+      "state": {
+        "tag": "@atproto/api@0.12.24"
+      }
+    },
+    {
+      "location": "https://github.com/whtwnd/whitewind-blog.git",
+      "lexicons": [{ "prefix": "com.whtwnd", "path": "lexicons/com/whtwnd" }],
+      "state": {
+        "tag": "v1.0.1"
+      }
+    }
+  ],
+  "module": "Sources/API"
+}
