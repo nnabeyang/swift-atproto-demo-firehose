@@ -11,7 +11,7 @@ public enum Firehose {
         let jsonEncoder = JSONEncoder()
         jsonEncoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
         try await WebSocketClient.connect(url: .init(url),
-                                          configuration: .init(maxFrameSize: 1 << 16),
+                                          configuration: .init(maxFrameSize: 1 << 17),
                                           logger: .init(label: "Firehose"))
         { inbound, _, _ in
             for try await msg in inbound.messages(maxSize: .max) {
